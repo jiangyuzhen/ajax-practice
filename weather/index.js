@@ -46,18 +46,22 @@
   }
 
   function requestWeather(city) {
-    $.ajax({
+    ajax({
       type: 'get',
       url: 'http://localhost:7777',
       data: {
         city: city,
         key: '629993751d6e310be1146bd91dce59b3'
       },
-      dataType: 'json',
       success: resultSuccess,
       error: function (error) {
         console.log('error', error);
       }
     });
+  }
+  
+  // please code here ···
+  function ajax (options) {
+
   }
 })();
