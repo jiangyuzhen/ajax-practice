@@ -2,16 +2,27 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>天气预报</title>
-    <link href="./index.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>天气预报</title>
+  <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
-
+  <div class="content">
+    <div class="form">
+      <div class="form-group">
+        <input type="text" placeholder="请输入要查询的中文城市名" value="成都" class="form-input" />
+        <input type="button" value="查询" class="form-button" />
+      </div>
+      <p class="form-tips">请输入正确的城市名格式</p>
+    </div>
+    <h3 class="weather-title"></h3>
+    <ul class="weather"></ul>
+  </div>
 </body>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="./index.js"></script>
 
 </html>
