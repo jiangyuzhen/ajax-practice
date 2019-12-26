@@ -7,7 +7,7 @@
 
 > npm install -D anywhere
 
-3. 启动静态文件 `live sever`
+3. 启动静态文件 `live sever`（anywhere 和 live sever, 二选一）
 
 > npx anywhere
    
