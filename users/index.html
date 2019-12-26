@@ -6,10 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AJAX 练习题 - 用户管理</title>
+    <style>
+        .user-container {
+            width: 600px;
+            margin: auto;
+        }
+
+        .user-container #user-list li {
+            cursor: pointer;
+            border: solid 1px #eee;
+            padding: 10px 20px;
+            margin: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="user-container">
+        <fieldset>
+            <legend>用户管理</legend>
+            <label for="username"><span>用户名:</span><input type="text" id="username" /></label>
+            <label for="password"><span>密码:</span><input type="password" id="password" /></label>
+            <button id="add-btn">添加</button>
+        </fieldset>
 
+        <ol id="user-list">
+
+        </ol>
+    </div>
 </body>
+<script src="./ajax.js"></script>
+<script src="./index.js"></script>
 
 </html>
