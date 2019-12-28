@@ -48,11 +48,10 @@
     })
 
     function renderUserList(data) {
-        if (Array.isArray(data)) {
+        if (!Array.isArray(data) && !data instanceof Array) {
             return false;
         }
 
-        data = JSON.parse(data);
         $userList.innerHTML = data.reduce((acc, cur) => {
             return acc += `<li data-id="${cur.id}"><span>用户名：${cur.username} - 密码：${cur.password}</span><span>X</span></li>`;
         }, '');
