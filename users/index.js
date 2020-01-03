@@ -26,11 +26,11 @@
     }
 
     document.getElementById('add-btn').addEventListener('click', function () {
-        let $username = document.getElementById('username').value;
-        let $password = document.getElementById('password').value;
+        let username = document.getElementById('username').value;
+        let password = document.getElementById('password').value;
         let data = {
-            "username": $username, // Math.random().toString(36).substring(2),
-            "password": $password
+            "username": username,
+            "password": password
         }
         addItemData(data);
     })
@@ -38,12 +38,17 @@
     $userList.addEventListener('click', function (event) {
         let id = event.target.getAttribute('data-id') || event.target.parentElement.getAttribute('data-id');
 
+        if (!id) {
+            return false;
+        }
+
         switch (true) {
             case event.target.innerHTML === 'X':
                 deleteItemData(id);
                 break;
             default:
                 updateItemData(id);
+                break;
         }
     })
 
@@ -55,7 +60,6 @@
         $userList.innerHTML = data.reduce((acc, cur) => {
             return acc += `<li data-id="${cur.id}"><span>用户名：${cur.username} - 密码：${cur.password}</span><span>X</span></li>`;
         }, '');
-
     }
 
     function addItem(item) {
@@ -78,5 +82,4 @@
     }
 
     getListData();
-
 })();
