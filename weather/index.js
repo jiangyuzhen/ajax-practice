@@ -59,9 +59,35 @@
       }
     });
   }
-  
-  // please code here ···
-  function ajax (options) {
 
+  // please code here ···
+  function ajax(options) {
+    options = {
+      url: options.url || "",
+      type: options.type.toLocaleUpperCase() || "GET",
+      data: options.data || null,
+      success: options.success || function (result) { },
+      error: options.error || function (error) { }
+    };
+
+    var xhr;
+    if (window.XMLHttpRequest) {
+      xhr = new XMLHttpRequest();
+    } else {
+      // IE6及其以下版本   
+      xhr = new ActiveXObjcet('Microsoft.XMLHTTP');
+    }
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4)
+        if (xhr.status === 200) {
+          options.success && options.success(JSON.parse(xhr.responseText));
+        } else {
+          options.error && options.error(xhr.status);
+        }
+    }
+
+    xhr.open(options.type, options.url + '/?city=' + options.data.city + "&key=" + options.data.key, true);
+    xhr.send();
   }
 })();

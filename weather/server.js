@@ -5,6 +5,8 @@ var proxyServer = http.createServer((request, response) => {
   const parsedUrl = url.parse(request.url);
 
   // please code here ···
+  response.setHeader("Access-Control-Allow-Origin", "*");
+  response.setHeader("Content-Type", "text/plain;charset=utf-8");
 
   if (parsedUrl.pathname === '/') {
     http.get('http://apis.juhe.cn/simpleWeather/query?' + parsedUrl.query, res => {
@@ -12,7 +14,7 @@ var proxyServer = http.createServer((request, response) => {
 
       res.on('data', data => {
         body += data;
-    });
+      });
 
       res.on('end', () => {
         response.end(body);
